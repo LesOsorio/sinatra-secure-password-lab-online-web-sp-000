@@ -46,7 +46,7 @@ class ApplicationController < Sinatra::Base
     elsif params[:password] == ""
       redirect '/failure'
     else
-      @user = User.find_by(:username => params[:username], :password => params[:password])
+      @user = User.find_by(:username => params[:username])
       session[:user_id] = @user.id
       user.save
       redirect '/account'
